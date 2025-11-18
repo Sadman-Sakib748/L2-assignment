@@ -61,9 +61,6 @@ return items.filter(item=>item.rating>=4);
 
 
 
-
-
-
 type User= {
   id:number;
   name:string;
@@ -139,20 +136,5 @@ type Product = {
   discount?: number; 
 };
 
-function calculateTotalPrice(products: Product[]): number {
-  if (products.length === 0) return 0;
 
-  return products
-    .map((product) => {
-      const baseTotal = product.price * product.quantity;
-
-      if (product.discount !== undefined) {
-        const discountAmount = baseTotal * (product.discount / 100);
-        return baseTotal - discountAmount;
-      }
-
-      return baseTotal;
-    })
-    .reduce((sum, value) => sum + value, 0);
-}
 
